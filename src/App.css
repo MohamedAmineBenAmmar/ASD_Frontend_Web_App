@@ -1,38 +1,97 @@
-.App {
-  text-align: center;
+html {
+  font-size: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0px;
+  height: 100%;
+  padding: 2rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--surface-ground);
+  font-family: var(--font-family);
+  font-weight: normal;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/*  Part 1 */
+.layout-wrapper {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.layout-footer {
+  position: absolute;
+  bottom: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.menu-layout-static .layout-footer {
+  width: calc(100% - 235px);
+}
+
+.layout-menu-static-inactive .layout-footer {
+  margin-left: 0px;
+  width: 100%;
+}
+
+.menu-layout-slim .layout-footer {
+  width: calc(100% - 75px);
+}
+
+.menu-layout-horizontal .layout-footer {
+  width: 100%;
+}
+
+/*  End Part 1 */
+
+/*  Part 2 */
+/* StepsDemo.css */
+
+@media screen and (max-width: 640px) {
+  .steps-demo .p-steps {
+    height: 350px;
   }
-  to {
-    transform: rotate(360deg);
+  .steps-demo .p-steps > ul {
+    flex-direction: column;
+    height: 100%;
+  }
+  .steps-demo .p-steps > ul .p-steps-item {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  .steps-demo .p-steps > ul .p-steps-item:before {
+    position: static;
+    left: auto;
+    top: auto;
+    margin-top: 0;
+    border-left: 1px solid var(--surface-d);
+    border-top: 0 none;
+    width: auto;
+    height: 100%;
+    margin-left: 1rem;
+  }
+  .steps-demo .p-steps > ul .p-steps-item .p-menuitem-link {
+    flex-direction: row;
+    overflow: visible;
+  }
+  .steps-demo .p-steps > ul .p-steps-item .p-menuitem-link .p-steps-title {
+    margin: 0 0.5rem 0;
+  }
+  .steps-demo .p-steps > ul .p-steps-item:last-child {
+    flex-grow: 0;
+  }
+  .steps-demo .p-steps > ul .p-steps-item:last-child .p-menuitem-link {
+    padding: 0;
+  }
+  .steps-demo .p-steps > ul .p-steps-item:last-child:before {
+    display: none;
   }
 }
+
+/*  End Part 2 */
